@@ -10,7 +10,7 @@ import java.awt.Font;
  * @see    java.awt.Font
  */
 public class ViewStyle {
-    public static final String SISTEMA = "SGBov - ";
+    public static final String SISTEMA = "Minaspar - ";
     public static final String ESTILO  = "Arial";
     public static final byte   TAMANHO = 15;
     public static final byte   NEGRITO = Font.BOLD;

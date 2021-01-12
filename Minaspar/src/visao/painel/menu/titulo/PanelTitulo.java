@@ -22,6 +22,6 @@ public final class PanelTitulo extends Panel {
     @Override
     protected void addComponents() {
         setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(createTitleLabel("SGBov - Sistema de Gestão de Bovinos"));
+        add(createTitleLabel("Minaspar - Controle de Estoque"));
     }
 }
