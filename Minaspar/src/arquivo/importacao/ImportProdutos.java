@@ -1,12 +1,10 @@
 package arquivo.importacao;
 
-import funct.FunctString;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import modelo.dao.estoque.DaoProduto;
-import modelo.entidade.estoque.Produto;
 
 /**
  * <p>Classe de Importacao <b>ImportProdutos</b>.</p>
@@ -20,6 +18,7 @@ public class ImportProdutos {
     private DaoProduto dao;
     private FileReader file;
     private BufferedReader buffer;
+    private Integer count;
     
     /**
      * Metodo responsavel por abrir o Arquivo de Importacao.
@@ -37,35 +36,34 @@ public class ImportProdutos {
      */
     public void readLines() throws FileNotFoundException, IOException {
         openFiles();
-        dao = new DaoProduto();
+        //dao = new DaoProduto();
+        count = 0;
         
         String line  = buffer.readLine();
         while (line != null) {
-            readHeader();
-            readProdutos();
+            importProduto(line);
             line = buffer.readLine();
         }
     }
     
     /**
-     * Metodo responsavel por Ler o Header da Pagina (Fixado em 7 Linhas).
-     * @throws IOException 
+     * Metodo responsavel por Importar o Produto descrito na Linha.
+     * @param line Linha importada do Arquivo.
      */
-    private void readHeader() throws IOException {
-        for (int i = 1; i <= 7; i++)
-            buffer.readLine();
+    private void importProduto(String line) {
+        if (!line.equals("") && checkProduto(line)) {
+            String produto = getProduto(line);
+            System.out.println(++count + produto);
+        }
     }
     
     /**
-     * Metodo responsavel por Ler os Produtos da Pagina (Fixado em 39 Linhas).
-     * @throws IOException 
+     * Metodo responsavel por checar se a Linha inicia com Numeros.
+     * @param  line String com a Linha.
+     * @return Linha contem um Produto.
      */
-    private void readProdutos() throws IOException {
-        for (int i = 1; i <= 54; i++) {
-            //Produto produto = getProduto(buffer.readLine());
-            System.out.println(getProduto(buffer.readLine()));
-            //dao.insert(produto);
-        }
+    private boolean checkProduto(String line) {
+        return Character.isDigit(line.trim().charAt(0));
     }
     
     /**
@@ -79,9 +77,9 @@ public class ImportProdutos {
         //        produto.setCodigoBarras(getCodigoBarras(linha));
         //        produto.setValorUnitario(getValorUnitario(linha));
         //return  produto;
-        return " Codigo     = " + this.getCodigoBarras(linha) 
-             + " Descricao  = " + this.getDescricao(linha) 
-             + " Valor      = " + this.getValorUnitario(linha);
+        return " Codigo     = " + getCodigoBarras(linha) 
+             + " Descricao  = " + getDescricao(linha) 
+             + " Valor = " + getValorUnitario(linha);
     }
     
     /**
@@ -111,13 +109,13 @@ public class ImportProdutos {
         return Float.parseFloat(linha.substring(61, 70).trim());
     }
     
-    /**
+    
     public static void main(String[] args) {
         ImportProdutos importProdutos = new ImportProdutos();
         try {
             importProdutos.readLines();
         } catch (IOException ex) {
-            Logger.getLogger(ImportProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
-    }*/
+    }
 }
