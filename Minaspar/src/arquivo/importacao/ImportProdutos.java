@@ -61,10 +61,10 @@ public class ImportProdutos {
      * @throws IOException 
      */
     private void readProdutos() throws IOException {
-        for (int i = 1; i <= 39; i++) {
-            Produto produto = getProduto(buffer.readLine());
-            System.out.println(produto);
-            dao.insert(produto);
+        for (int i = 1; i <= 54; i++) {
+            //Produto produto = getProduto(buffer.readLine());
+            System.out.println(getProduto(buffer.readLine()));
+            //dao.insert(produto);
         }
     }
     
@@ -73,15 +73,15 @@ public class ImportProdutos {
      * @param linha Linha com os Dados do Produto.
      * @return Produto.
      */
-    private Produto getProduto(String linha) {
-        Produto produto = new Produto();
-                produto.setDescricao(new FunctString().removeCharEspeciais(getDescricao(linha)));
-                produto.setCodigoBarras(getCodigoBarras(linha));
-                produto.setValorUnitario(getValorUnitario(linha));
-        return  produto;
-//        return " Codigo     = " + this.getCodigoBarras(linha) 
-//             + " Descricao  = " + this.getDescricao(linha) 
-//             + " Valor      = " + this.getValorUnitario(linha);
+    private String getProduto(String linha) {
+        //Produto produto = new Produto();
+        //        produto.setDescricao(new FunctString().removeCharEspeciais(getDescricao(linha)));
+        //        produto.setCodigoBarras(getCodigoBarras(linha));
+        //        produto.setValorUnitario(getValorUnitario(linha));
+        //return  produto;
+        return " Codigo     = " + this.getCodigoBarras(linha) 
+             + " Descricao  = " + this.getDescricao(linha) 
+             + " Valor      = " + this.getValorUnitario(linha);
     }
     
     /**

@@ -53,7 +53,7 @@ public final class ViewSistemaSobre extends ViewModal {
     
     @Override
     public void addBody() {
-        getContentPane().add(createLabelTitle("SGBov - Sistema de Gerenciamento de Bovinos", 20));
+        getContentPane().add(createLabelTitle("Minaspar - Sistema de Controle de Estoque", 20));
         getContentPane().add(getVerticalSpace(10));
         getContentPane().add(createLabel("D-Work Sistemas Inteligentes", 15));
         getContentPane().add(getVerticalSpace(10));
