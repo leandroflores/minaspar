@@ -10,4 +10,13 @@ import modelo.controlador.ControllerEntidade;
  * @see    modelo.controlador.ControllerEntidade
  * @see    modelo.entidade.estoque.Produto
  */
-public class ControllerProduto extends ControllerEntidade {}
+public class ControllerProduto extends ControllerEntidade {
+    
+    /**
+     * Metodo responsavel por retornar a Lista de Tipos do Produto.
+     * @return Lista de Tipos do Produto.
+     */
+    public String[] getTipos() {
+        return new String[]{"MEDICAMENTO", "PERFUMARIA", "OUTROS"};
+    }
+}

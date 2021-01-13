@@ -753,7 +753,7 @@ public abstract class Panel extends JPanel {
     protected JTextField createDecimalTextField(String id, Float value, int size) {
         JTextField textField = createTextField(id, "", size);
                    textField.setHorizontalAlignment(SwingConstants.RIGHT);
-                   textField.setText(new DecimalFormat("#,##0.00").format(value));
+                   textField.setText(new DecimalFormat("R$ #,##0.00").format(value));
         return     textField;
     }
     
