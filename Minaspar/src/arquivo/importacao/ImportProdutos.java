@@ -20,7 +20,6 @@ public class ImportProdutos {
     private DaoProduto dao;
     private FileReader file;
     private BufferedReader buffer;
-    private Integer count;
     
     /**
      * Metodo responsavel por abrir o Arquivo de Importacao.

@@ -7,9 +7,9 @@ import visao.View;
 
 /**
  * <p>Classe de Controle <b>ControllerView</b>.</p>
- * <p>Classe responsavel por ser o <b>Controlador de Eventos</b> das Views do SGBov.</p>
+ * <p>Classe responsavel por ser o <b>Controlador de Eventos</b> das Views do Sistema.</p>
  * @author Leandro
- * @since  15/12/2020
+ * @since  10/01/2021
  * @see    controlador.Controller
  * @see    visao.View
  */

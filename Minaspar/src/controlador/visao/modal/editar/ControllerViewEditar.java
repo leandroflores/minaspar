@@ -4,6 +4,7 @@ import controlador.visao.modal.ControllerViewModal;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import visao.modal.editar.ViewEditar;
+import visao.painel.base.PanelBase;
 import visao.painel.editar.PanelEditar;
 
 /**
@@ -60,10 +61,16 @@ public abstract class ControllerViewEditar extends ControllerViewModal {
     }
     
     /**
+     * Metodo responsavel por retornar o Panel Base.
+     * @return Panel Base.
+     */
+    public abstract PanelBase getPanelBase();
+    
+    /**
      * Metodo responsavel por retornar o Panel da View Editar.
      * @return Panel da View Editar.
      */
-    public PanelEditar getPanel() {
+    public PanelEditar getPanelEditar() {
         return getView().getPanelEditar();
     }
     

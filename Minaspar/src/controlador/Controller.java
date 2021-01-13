@@ -10,9 +10,9 @@ import javax.swing.event.DocumentListener;
 
 /**
  * <p>Classe de Controle <b>Controller</b>.</p>
- * <p>Classe responsavel por ser o <b>Controlador de Eventos</b> das Views do SGBov.</p>
+ * <p>Classe responsavel por ser o <b>Controlador de Eventos</b> das Views do Sistema.</p>
  * @author Leandro
- * @since  12/12/2018
+ * @since  10/01/2021
  * @see    java.awt.event.ActionListener
  * @see    java.awt.event.KeyListener
  * @see    javax.swing.event.DocumentListener

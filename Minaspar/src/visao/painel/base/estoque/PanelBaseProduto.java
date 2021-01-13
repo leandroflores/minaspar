@@ -1,5 +1,6 @@
 package visao.painel.base.estoque;
 
+import controlador.visao.painel.base.estoque.ControllerPanelBaseProduto;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JComboBox;
@@ -14,7 +15,7 @@ import visao.painel.base.PanelBase;
  * <p>Classe responsavel por definir o <b>Painel Base do Produto</b> do Sistema.</p>
  * @author Leandro
  * @since  13/01/2021
- * @see    controlador.visao.painel.base.
+ * @see    controlador.visao.painel.base.estoque.ControllerPanelBaseProduto
  * @see    modelo.entidade.estoque.Produto
  * @see    visao.painel.base.PanelBase
  */
@@ -29,7 +30,7 @@ public final class PanelBaseProduto extends PanelBase {
     public PanelBaseProduto(Panel panel, Produto produto_) {
         super(panel);
         produto    = produto_;
-        //controller = new ControllerPanelBaseInseminacao(this);
+        controller = new ControllerPanelBaseProduto(this);
         setProperties();
         addComponents();
         setValues();
@@ -61,7 +62,7 @@ public final class PanelBaseProduto extends PanelBase {
     public void setValues() {
         getTextFieldCodigoBarras().setText(produto.getCodigoBarras());
         getTextFieldDescricao().setText(produto.getDescricao());
-        getComboBoxTipo().setSelectedItem(produto.getTipo());
+        //getComboBoxTipo().setSelectedItem(produto.getTipo());
         getTextFieldValorUnitario().setText(produto.getValorUnitarioFormatado());
     }
     

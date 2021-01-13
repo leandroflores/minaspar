@@ -4,6 +4,7 @@ import controlador.visao.modal.ControllerViewModal;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import visao.modal.novo.ViewNovo;
+import visao.painel.base.PanelBase;
 import visao.painel.novo.PanelNovo;
 
 /**
@@ -63,6 +64,12 @@ public abstract class ControllerViewNovo extends ControllerViewModal {
                 break;
         }
     }
+    
+    /**
+     * Metodo responsavel por retornar o Panel Base.
+     * @return Panel Base.
+     */
+    public abstract PanelBase getPanelBase();
     
     /**
      * Metodo responsavel por retornar o Panel Novo.
