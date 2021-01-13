@@ -125,59 +125,11 @@ public final class ViewMenu extends View {
     }
     
     /**
-     * Metodo responsavel por retornar o Menu Item Rebanho.
-     * @return Menu Item Rebanho.
+     * Metodo responsavel por retornar o Menu Item Produto.
+     * @return Menu Item Produto.
      */
-    public JMenuItem getMenuItemRebanho() {
-        return getMenuItem("rebanho_consulta");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Menu Item Pesagem.
-     * @return Menu Item Pesagem.
-     */
-    public JMenuItem getMenuItemPesagem() {
-        return getMenuItem("rebanho_pesagem");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Menu Item Inseminacao.
-     * @return Menu Item Inseminacao.
-     */
-    public JMenuItem getMenuItemInseminacao() {
-        return getMenuItem("rebanho_inseminacao");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Menu Item Funcionario.
-     * @return Menu Item Funcionario.
-     */
-    public JMenuItem getMenuItemFuncionario() {
-        return getMenuItem("admin_funcionario");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Menu Item Movimentacoes.
-     * @return Menu Item Movimentacoes.
-     */
-    public JMenuItem getMenuItemMovimentacoes() {
-        return getMenuItem("financeiro_movimentacoes");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Menu Item Despesas.
-     * @return Menu Item Despesas.
-     */
-    public JMenuItem getMenuItemDespesas() {
-        return getMenuItem("financeiro_despesas");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Menu Item Receitas.
-     * @return Menu Item Receitas.
-     */
-    public JMenuItem getMenuItemReceitas() {
-        return getMenuItem("financeiro_receitas");
+    public JMenuItem getMenuItemProduto() {
+        return getMenuItem("estoque_produto");
     }
     
     /**

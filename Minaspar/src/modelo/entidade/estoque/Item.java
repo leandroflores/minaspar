@@ -19,7 +19,7 @@ import modelo.entidade.Entidade;
  * @see    modelo.entidade.estoque.Produto
  */
 @Entity
-@Table (schema = "minaspar", name = "item_produto")
+@Table (schema = "minaspar_final", name = "item_produto")
 public class Item extends Entidade {
     @JoinColumn (name = "id_produto")
     @ManyToOne

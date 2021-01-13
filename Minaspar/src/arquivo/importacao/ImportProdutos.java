@@ -1,10 +1,12 @@
 package arquivo.importacao;
 
+import funct.FunctString;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import modelo.dao.estoque.DaoProduto;
+import modelo.entidade.estoque.Produto;
 
 /**
  * <p>Classe de Importacao <b>ImportProdutos</b>.</p>
@@ -36,8 +38,7 @@ public class ImportProdutos {
      */
     public void readLines() throws FileNotFoundException, IOException {
         openFiles();
-        //dao = new DaoProduto();
-        count = 0;
+        dao = new DaoProduto();
         
         String line  = buffer.readLine();
         while (line != null) {
@@ -51,10 +52,8 @@ public class ImportProdutos {
      * @param line Linha importada do Arquivo.
      */
     private void importProduto(String line) {
-        if (!line.equals("") && checkProduto(line)) {
-            String produto = getProduto(line);
-            System.out.println(++count + produto);
-        }
+        if (!line.equals("") && checkProduto(line)) 
+            dao.insert(getProduto(line));
     }
     
     /**
@@ -71,15 +70,12 @@ public class ImportProdutos {
      * @param linha Linha com os Dados do Produto.
      * @return Produto.
      */
-    private String getProduto(String linha) {
-        //Produto produto = new Produto();
-        //        produto.setDescricao(new FunctString().removeCharEspeciais(getDescricao(linha)));
-        //        produto.setCodigoBarras(getCodigoBarras(linha));
-        //        produto.setValorUnitario(getValorUnitario(linha));
-        //return  produto;
-        return " Codigo     = " + getCodigoBarras(linha) 
-             + " Descricao  = " + getDescricao(linha) 
-             + " Valor = " + getValorUnitario(linha);
+    private Produto getProduto(String linha) {
+        Produto produto = new Produto();
+                produto.setDescricao(new FunctString().removeCharEspeciais(getDescricao(linha)));
+                produto.setCodigoBarras(getCodigoBarras(linha));
+                produto.setValorUnitario(getValorUnitario(linha));
+        return  produto;
     }
     
     /**
@@ -110,6 +106,11 @@ public class ImportProdutos {
     }
     
     
+    /**
+     * Metodo principal para a Importacao de Produtos no BD.
+     * @param args 
+     */
+    /*
     public static void main(String[] args) {
         ImportProdutos importProdutos = new ImportProdutos();
         try {
@@ -117,5 +118,5 @@ public class ImportProdutos {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-    }
+    }*/
 }

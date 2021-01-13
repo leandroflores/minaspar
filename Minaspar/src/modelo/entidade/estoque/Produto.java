@@ -15,7 +15,7 @@ import modelo.entidade.Entidade;
  * @see    modelo.entidade.Entidade
  */
 @Entity
-@Table (schema = "minaspar", name = "produto")
+@Table (schema = "minaspar_final", name = "produto")
 public class Produto extends Entidade {
     @Column (name = "descricao")
     private String  descricao;
