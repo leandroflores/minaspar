@@ -133,6 +133,14 @@ public final class ViewMenu extends View {
     }
     
     /**
+     * Metodo responsavel por retornar o Menu Item Estoque.
+     * @return Menu Item Estoque.
+     */
+    public JMenuItem getMenuItemEstoque() {
+        return getMenuItem("estoque_balanco");
+    }
+    
+    /**
      * Metodo responsavel por retornar o Menu Item Sobre.
      * @return Menu Item Sobre.
      */

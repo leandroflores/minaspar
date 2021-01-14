@@ -4,6 +4,7 @@ import controlador.visao.ControllerView;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import visao.estruturais.menu.ViewMenu;
+import visao.modal.consulta.estoque.ViewConsultaItem;
 import visao.modal.consulta.estoque.ViewConsultaProduto;
 import visao.modal.sistema.ViewSistemaSair;
 import visao.modal.sistema.ViewSistemaSobre;
@@ -30,6 +31,8 @@ public class ControllerViewMenu extends ControllerView {
     public void actionPerformed(ActionEvent event) {
         if (getView().getMenuItemProduto().equals(event.getSource()))
             new ViewConsultaProduto(getView()).setVisible(true);
+        else if (getView().getMenuItemEstoque().equals(event.getSource()))
+            new ViewConsultaItem(getView()).setVisible(true);
         else if (getView().getMenuItemSobre().equals(event.getSource()))
             new ViewSistemaSobre(getView()).setVisible(true);
         else if (getView().getMenuItemSair().equals(event.getSource()))

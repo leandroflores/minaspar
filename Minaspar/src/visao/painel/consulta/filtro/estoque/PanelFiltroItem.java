@@ -1,9 +1,11 @@
 package visao.painel.consulta.filtro.estoque;
 
 import controlador.visao.painel.consulta.filtro.ControllerPanelFiltro;
+import funct.FunctDate;
 import java.awt.FlowLayout;
+import java.util.Date;
 import javax.swing.JTextField;
-import visao.modal.consulta.estoque.ViewConsultaProduto;
+import visao.modal.consulta.estoque.ViewConsultaItem;
 import visao.painel.consulta.filtro.PanelFiltro;
 
 /**
@@ -21,7 +23,7 @@ public final class PanelFiltroItem extends PanelFiltro {
      * Metodo construtor padrao da Classe.
      * @param view View Consulta Item.
      */
-    public PanelFiltroItem(ViewConsultaProduto view) {
+    public PanelFiltroItem(ViewConsultaItem view) {
         super(view);
         controller = new ControllerPanelFiltro(this);
         setProperties();
@@ -35,9 +37,19 @@ public final class PanelFiltroItem extends PanelFiltro {
 
     @Override
     protected void addComponents() {
+        add(createLabel("Ano*: ", 100));
+        add(createYearTextField("ano"));
         add(createLabel("Produto/Cód. Barras: ", 200));
         add(createTextField("produto", "", 20));
         add(createButtonAtualizar());
+    }
+    
+    /**
+     * Metodo responsavel por retornar o Text Field Ano.
+     * @return Text Field Ano.
+     */
+    public JTextField getTextFieldAno() {
+        return getTextField("ano");
     }
     
     /**

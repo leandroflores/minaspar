@@ -156,13 +156,14 @@ public class Item extends Entidade {
     
     @Override
     public String[] getDados() {
-        String[] item    = new String[6];
+        String[] item    = new String[7];
                  item[0] = Long.toString(id);
                  item[1] = Integer.toString(ano);
-                 item[2] = produto.toString();
-                 item[3] = getValorUnitarioFormatado();
-                 item[4] = Integer.toString(quantidade);
-                 item[5] = getValorTotalFormatado();
+                 item[2] = produto.getCodigoBarras();
+                 item[3] = produto.getDescricao();
+                 item[4] = getValorUnitarioFormatado();
+                 item[5] = Integer.toString(quantidade);
+                 item[6] = getValorTotalFormatado();
         return   item;
     }
 
