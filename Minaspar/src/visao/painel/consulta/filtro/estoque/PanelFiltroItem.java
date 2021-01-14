@@ -7,21 +7,21 @@ import visao.modal.consulta.estoque.ViewConsultaProduto;
 import visao.painel.consulta.filtro.PanelFiltro;
 
 /**
- * <p>Classe de Visao <b>PanelFiltroProduto</b>.</p> 
- * <p>Classe responsavel por definir o <b>Painel de Filtro do Produto</b> do Sistema.</p>
+ * <p>Classe de Visao <b>PanelFiltroItem</b>.</p> 
+ * <p>Classe responsavel por definir o <b>Painel de Filtro do Item</b> do Sistema.</p>
  * @author Leandro
- * @since  13/01/2021
+ * @since  14/01/2021
  * @see    controlador.visao.painel.consulta.filtro.ControllerPanelFiltro
- * @see    modelo.entidade.estoque.Produto
+ * @see    modelo.entidade.estoque.Item
  * @see    visao.painel.consulta.filtro.PanelFiltro
  */
-public final class PanelFiltroProduto extends PanelFiltro {
+public final class PanelFiltroItem extends PanelFiltro {
     
     /**
      * Metodo construtor padrao da Classe.
-     * @param view View Consulta Produto.
+     * @param view View Consulta Item.
      */
-    public PanelFiltroProduto(ViewConsultaProduto view) {
+    public PanelFiltroItem(ViewConsultaProduto view) {
         super(view);
         controller = new ControllerPanelFiltro(this);
         setProperties();

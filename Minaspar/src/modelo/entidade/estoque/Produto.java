@@ -108,7 +108,13 @@ public class Produto extends Entidade {
     
     @Override
     public String[] getDadosPesquisa() {
-        return getDados();
+        String[] dados    = new String[5];
+                 dados[0] = Long.toString(id);
+                 dados[1] = tipo;
+                 dados[2] = codigoBarras;
+                 dados[3] = descricao;
+                 dados[4] = getValorUnitarioFormatado();
+        return   dados;
     }
     
     @Override

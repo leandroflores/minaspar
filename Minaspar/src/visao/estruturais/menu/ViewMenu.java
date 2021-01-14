@@ -67,7 +67,7 @@ public final class ViewMenu extends View {
         createMenu("estoque", "Estoque");
         
         createMenuItem("estoque_produto", "Consultar Produtos", "estoque/produto");
-        createMenuItem("estoque_balanco", "Balanço",            "estoque/balanco");
+        createMenuItem("estoque_balanco", "Itens do Estoque",   "estoque/balanco");
         
         getMenu("estoque").add(getMenuItem("estoque_produto"));
         getMenu("estoque").addSeparator();
