@@ -82,6 +82,15 @@ public class Dao<Entity> {
     }
     
     /**
+     * Metodo responsavel por retornar o Primeiro Objeto da Query List.
+     * @param  list Lista da Query.
+     * @return Primeiro Objeto da Query List.
+     */
+    protected Entity get(List list) {
+        return list.isEmpty() ? null : (Entity) list.get(0);
+    }
+    
+    /**
      * Metodo responsavel por retornar uma Lista de Objetos do Banco de Dados.
      * @return Lista de Objetos encontrados.
      */

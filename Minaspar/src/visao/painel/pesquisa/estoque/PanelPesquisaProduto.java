@@ -41,7 +41,7 @@ public final class PanelPesquisaProduto extends PanelPesquisa {
         add(createLabel("Tipo: ", 70));
         add(createComboBox("tipo", getTipos(), 30));
         getComboBoxTipo().setPreferredSize(new Dimension(150, 30));
-        add(createLabel("Produto*: ", 70));
+        add(createLabel("Produto*: ", 100));
         add(createTextField("produto", "", 20));
         add(createButton("atualizar", "", "atualizar"));
     }

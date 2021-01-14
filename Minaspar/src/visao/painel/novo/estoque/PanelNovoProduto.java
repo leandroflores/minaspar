@@ -18,7 +18,7 @@ import visao.painel.novo.PanelNovo;
  * @see    visao.painel.novo.PanelNovo
  */
 public final class PanelNovoProduto extends PanelNovo {
-    private final Produto produto;
+    private Produto produto;
     protected JTabbedPane tabbedPane;
     
     /**
@@ -61,7 +61,8 @@ public final class PanelNovoProduto extends PanelNovo {
     
     @Override
     public void clear() {
-        
+        produto = new Produto();
+        getPanelBaseProduto().setValues();
     }
     
     /**

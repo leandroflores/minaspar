@@ -64,6 +64,7 @@ public final class PanelBaseProduto extends PanelBase {
         getTextFieldDescricao().setText(produto.getDescricao());
         //getComboBoxTipo().setSelectedItem(produto.getTipo());
         getTextFieldValorUnitario().setText(produto.getValorUnitarioFormatado());
+        getTextFieldCodigoBarras().requestFocus();
     }
     
     /**

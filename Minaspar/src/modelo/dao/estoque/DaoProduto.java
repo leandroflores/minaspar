@@ -71,6 +71,6 @@ public class DaoProduto extends Dao<Produto> {
         String script = "SELECT e FROM " + name + " e WHERE e.codigoBarras LIKE :codigo";
         Query  query  = MANAGER.createQuery(script);
                query.setParameter("codigo", codigo);
-        return get(query);
+        return get(query.getResultList());
     }
 }

@@ -4,6 +4,7 @@ import controlador.Controller;
 import funct.FunctDate;
 import funct.FunctString;
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -105,7 +106,16 @@ public abstract class ControllerPanel extends Controller {
      * @return Valor Decimal de um Componente de Texto.
      */
     protected Float getDecimal(JTextComponent component) {
-        return getDecimalValue(component.getText().trim());
+        return getDecimalValue(component.getText().replaceAll("R\\$", "").replaceAll("\\.", "").replaceAll(",", ".").trim());
+    }
+    
+    /**
+     * Metodo responsavel por setar o Float do Text Field.
+     * @param textField JTextField.
+     * @param valor Valor.
+     */
+    protected void setFloat(JTextField textField, Float valor) {
+        textField.setText(new DecimalFormat("R$ #,##0.00").format(valor));
     }
     
     /**

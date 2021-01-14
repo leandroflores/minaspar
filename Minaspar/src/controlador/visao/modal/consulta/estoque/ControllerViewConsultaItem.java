@@ -7,6 +7,7 @@ import modelo.controlador.estoque.ControllerItem;
 import modelo.dao.estoque.DaoItem;
 import modelo.entidade.estoque.Item;
 import visao.modal.consulta.estoque.ViewConsultaItem;
+import visao.modal.novo.estoque.ViewNovoItem;
 import visao.painel.consulta.filtro.estoque.PanelFiltroItem;
 
 /**
@@ -49,7 +50,7 @@ public class ControllerViewConsultaItem extends ControllerViewConsulta {
     
     @Override
     public void novo() {
-        //new ViewNovoProduto(getView()).setVisible(true);
+        new ViewNovoItem(getView()).setVisible(true);
     }
 
     @Override

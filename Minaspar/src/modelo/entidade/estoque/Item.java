@@ -38,7 +38,7 @@ public class Item extends Entidade {
      */
     public Item() {
         produto       = null;
-        ano           = new FunctDate().getCurrentDate().getYear();
+        ano           = 2020;
         quantidade    = 0;
         valorUnitario = 0.0f;
         valorTotal    = 0.0f;
