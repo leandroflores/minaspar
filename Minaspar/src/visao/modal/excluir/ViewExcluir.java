@@ -43,7 +43,7 @@ public abstract class ViewExcluir extends ViewModal {
     @Override
     public void addHeader() {
         getContentPane().add(getVerticalSpace(25));
-        getContentPane().add(createLabelImage("icones/excluir"));
+        getContentPane().add(createLabelImage("icones/erro"));
         getContentPane().add(getVerticalSpace(15));
     }
     

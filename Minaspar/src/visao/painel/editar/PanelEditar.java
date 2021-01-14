@@ -29,11 +29,6 @@ public abstract class PanelEditar extends Panel {
      */
     protected abstract void setProperties();
     
-    /**
-     * Metodo abstrato responsavel por apresentar os Valores do Panel Editar.
-     */
-    public abstract void setValues();
-    
     @Override
     public ControllerPanelEditar getController() {
         return (ControllerPanelEditar) controller;

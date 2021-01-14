@@ -36,7 +36,7 @@ public final class ViewEditarProduto extends ViewEditar {
     @Override
     public void setProperties() {
         super.setProperties();
-        setSize(new Dimension(550, 330));
+        setSize(new Dimension(550, 355));
     }
     
     /**

@@ -70,13 +70,6 @@ public abstract class ViewEditar extends ViewModal {
     }
     
     /**
-     * Metodo responsavel por apresentar os Valores da View Editar.
-     */
-    public void setValues() {
-        getPanelEditar().setValues();
-    }
-    
-    /**
      * Metodo responsavel por retornar o Panel Editar.
      * @return Panel Editar.
      */

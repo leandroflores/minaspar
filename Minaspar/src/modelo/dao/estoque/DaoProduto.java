@@ -73,9 +73,4 @@ public class DaoProduto extends Dao<Produto> {
                query.setParameter("codigo", codigo);
         return get(query);
     }
-    
-    public static void main(String[] args) {
-        System.out.println(new DaoProduto());
-        System.out.println(new DaoItem());
-    }
 }

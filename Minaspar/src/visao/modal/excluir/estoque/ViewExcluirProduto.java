@@ -25,9 +25,9 @@ public final class ViewExcluirProduto extends ViewExcluir {
      */
     public ViewExcluirProduto(ViewConsultaProduto view, Produto produto_) {
         super(view);
-        produto     = produto_;
-        title       = "Excluir Produto";
-        controller  = new ControllerViewExcluirProduto(this);
+        produto    = produto_;
+        title      = "Excluir Produto";
+        controller = new ControllerViewExcluirProduto(this);
         setProperties();
         addComponents();
     }
@@ -35,7 +35,7 @@ public final class ViewExcluirProduto extends ViewExcluir {
     @Override
     public void setProperties() {
         super.setProperties();
-        setSize(new Dimension(650, 165));
+        setSize(new Dimension(700, 175));
     }
     
     @Override

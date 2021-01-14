@@ -32,6 +32,7 @@ public final class PanelEditarProduto extends PanelEditar {
         controller = new ControllerPanelEditarProduto(this);
         setProperties();
         addComponents();
+        getController().setReady();
     }
 
     @Override
@@ -58,11 +59,6 @@ public final class PanelEditarProduto extends PanelEditar {
         createScrollPane("base_produto",  getPanelBaseProduto());
         getScrollPane("base_produto").setViewportView(getPanelBaseProduto());
         tabbedPane.add("Produto", getScrollPane("base_produto"));
-    }
-    
-    @Override
-    public void setValues() {
-        
     }
     
     /**
