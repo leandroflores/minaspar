@@ -1,27 +1,27 @@
-package controlador.visao.modal.consulta;
+package controlador.visao.modal.relatorio;
 
 import controlador.visao.modal.ControllerViewModal;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import modelo.controlador.ControllerEntidade;
-import visao.modal.consulta.ViewConsulta;
+import visao.modal.relatorio.ViewRelatorio;
 import visao.painel.filtro.PanelFiltro;
 
 /**
  * <p>Classe de Controle <b>ControllerViewConsulta</b>.</p>
  * <p>Classe responsavel por ser o <b>Controlador de Eventos</b> da ViewConsulta do Sistema.</p>
  * @author Leandro
- * @since  17/12/2020
+ * @since  15/01/2021
  * @see    controlador.visao.modal.ControllerViewModal
- * @see    visao.modal.consulta.ViewConsulta
+ * @see    visao.modal.relatorio.ViewRelatorio
  */
-public abstract class ControllerViewConsulta extends ControllerViewModal {
+public abstract class ControllerViewRelatorio extends ControllerViewModal {
 
     /**
      * Metodo construtor padrao da Classe.
-     * @param view View Consulta.
+     * @param view View Relatorio.
      */
-    public ControllerViewConsulta(ViewConsulta view) {
+    public ControllerViewRelatorio(ViewRelatorio view) {
         super(view);
     }
 
@@ -29,12 +29,8 @@ public abstract class ControllerViewConsulta extends ControllerViewModal {
     public void actionPerformed(ActionEvent event) {
         if (getView().getButtonAtualizar().equals(event.getSource()))
             update();
-        else if (getView().getButtonNovo().equals(event.getSource()))
-            novo();
-        else if (getView().getButtonEditar().equals(event.getSource()))
-            editar();
-        else if (getView().getButtonExcluir().equals(event.getSource()))
-            excluir();
+        else if (getView().getButtonImprimir().equals(event.getSource()))
+            imprimir();
         else if (getView().getButtonVoltar().equals(event.getSource()))
             getView().dispose();
     }
@@ -48,15 +44,9 @@ public abstract class ControllerViewConsulta extends ControllerViewModal {
                 update();
                 break;
             case F1:
-                novo();
+                imprimir();
                 break;
             case F2:
-                editar();
-                break;
-            case F3:
-                excluir();
-                break;
-            case F4:
                 getView().dispose();
                 break;
             default:
@@ -65,7 +55,7 @@ public abstract class ControllerViewConsulta extends ControllerViewModal {
     }
     
     /**
-     * Metodo responsavel por atualizar a View Consulta.
+     * Metodo responsavel por atualizar a View Relatorio.
      */
     public abstract void update();
     
@@ -75,19 +65,9 @@ public abstract class ControllerViewConsulta extends ControllerViewModal {
     public abstract void pesquisar();
     
     /**
-     * Metodo abstrato responsavel por exibir a View para Novo.
+     * Metodo abstrato responsavel por Imprimir o Relatorio.
      */
-    public abstract void novo();
-    
-    /**
-     * Metodo abstrato responsavel por exibir a View para Editar.
-     */
-    public abstract void editar();
-    
-    /**
-     * Metodo Abstrato responsavel por exibir a View para Excluir.
-     */
-    public abstract void excluir();
+    public abstract void imprimir();
     
     /**
      * Metodo abstract responsavel por retornar o Controller da Entidade.
@@ -96,15 +76,15 @@ public abstract class ControllerViewConsulta extends ControllerViewModal {
     public abstract ControllerEntidade getController();
     
     /**
-     * Metodo responsavel por retornar o Panel Filtro da View Consulta.
-     * @return Panel Filtro da View Consulta.
+     * Metodo responsavel por retornar o Panel Filtro da View Relatorio.
+     * @return Panel Filtro da View Relatorio.
      */
     public PanelFiltro getFiltro() {
         return getView().getFiltro();
     }
     
     @Override
-    public ViewConsulta getView() {
-        return (ViewConsulta) this.view;
+    public ViewRelatorio getView() {
+        return (ViewRelatorio) this.view;
     }
 }

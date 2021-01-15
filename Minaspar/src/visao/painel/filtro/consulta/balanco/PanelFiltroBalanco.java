@@ -1,27 +1,27 @@
-package visao.painel.consulta.filtro.estoque;
+package visao.painel.filtro.consulta.balanco;
 
-import controlador.visao.painel.consulta.filtro.ControllerPanelFiltro;
+import controlador.visao.painel.filtro.ControllerPanelFiltro;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
-import visao.modal.consulta.estoque.ViewConsultaItem;
-import visao.painel.consulta.filtro.PanelFiltro;
+import visao.modal.consulta.balanco.ViewConsultaBalanco;
+import visao.painel.filtro.PanelFiltro;
 
 /**
- * <p>Classe de Visao <b>PanelFiltroItem</b>.</p> 
- * <p>Classe responsavel por definir o <b>Painel de Filtro do Item</b> do Sistema.</p>
+ * <p>Classe de Visao <b>PanelFiltroBalanco</b>.</p> 
+ * <p>Classe responsavel por definir o <b>Painel de Filtro do Balanco</b> do Sistema.</p>
  * @author Leandro
  * @since  14/01/2021
- * @see    controlador.visao.painel.consulta.filtro.ControllerPanelFiltro
+ * @see    controlador.visao.painel.filtro.ControllerPanelFiltro
  * @see    modelo.entidade.estoque.Item
- * @see    visao.painel.consulta.filtro.PanelFiltro
+ * @see    visao.painel.filtro.PanelFiltro
  */
-public final class PanelFiltroItem extends PanelFiltro {
+public final class PanelFiltroBalanco extends PanelFiltro {
     
     /**
      * Metodo construtor padrao da Classe.
-     * @param view View Consulta Item.
+     * @param view View Consulta Balanco.
      */
-    public PanelFiltroItem(ViewConsultaItem view) {
+    public PanelFiltroBalanco(ViewConsultaBalanco view) {
         super(view);
         controller = new ControllerPanelFiltro(this);
         setProperties();
@@ -37,6 +37,7 @@ public final class PanelFiltroItem extends PanelFiltro {
     protected void addComponents() {
         add(createLabel("Ano*: ", 100));
         add(createYearTextField("ano"));
+        getTextFieldAno().setText("2020");
         add(createLabel("Produto/Cód. Barras: ", 200));
         add(createTextField("produto", "", 20));
         add(createButtonAtualizar());

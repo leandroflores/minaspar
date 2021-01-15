@@ -1,27 +1,26 @@
-package visao.painel.consulta.filtro;
+package visao.painel.filtro;
 
-//import controlador.visao.painel.editar.ControllerPanelEditar;
 import javax.swing.JButton;
-import visao.modal.consulta.ViewConsulta;
+import visao.modal.ViewModal;
 import visao.painel.Panel;
 
 /**
  * <p>Classe de Visao <b>PanelFiltro</b>.</p> 
- * <p>Classe responsavel por definir um Modelo Abstrato para o <b>Painel Filtro</b> do SGBov.</p>
+ * <p>Classe responsavel por definir um Modelo Abstrato para o <b>Painel Filtro</b> do Sistema.</p>
  * @author Leandro
  * @since  21/12/2020
- * @see    controlador.visao.painel.consulta.filtro.ControllerPanelFiltro
+ * @see    controlador.visao.painel.filtro.ControllerPanelFiltro
  * @see    visao.modal.consulta.ViewConsulta
  * @see    visao.painel.Panel
  */
 public abstract class PanelFiltro extends Panel {
-    protected ViewConsulta owner;
+    protected ViewModal owner;
     
     /**
      * Metodo construtor padrao da Classe.
-     * @param view View Consulta.
+     * @param view View Modal.
      */
-    public PanelFiltro(ViewConsulta view) {
+    public PanelFiltro(ViewModal view) {
         owner = view;
     }
     
@@ -47,18 +46,10 @@ public abstract class PanelFiltro extends Panel {
     }
     
     /**
-     * Metodo responsavel por retornar o Controlador do Panel Editar.
-     * @return Controlador do Panel Editar.
-     */
-    //public ControllerPanelEditar getController() {
-    //    return (ControllerPanelEditar) controller;
-    //}
-    
-    /**
      * Metodo responsavel por retornar o Owner da View Filtro.
      * @return Owner da View Filtro.
      */
-    public ViewConsulta getOwner() {
-        return (ViewConsulta) owner;
+    public ViewModal getOwner() {
+        return (ViewModal) owner;
     }
 }

@@ -1,9 +1,9 @@
-package controlador.visao.painel.consulta.filtro;
+package controlador.visao.painel.filtro;
 
 import controlador.visao.painel.ControllerPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import visao.painel.consulta.filtro.PanelFiltro;
+import visao.painel.filtro.PanelFiltro;
 
 /**
  * <p>Classe de Controle <b>ControllerPanelFiltro</b>.</p>
@@ -11,7 +11,7 @@ import visao.painel.consulta.filtro.PanelFiltro;
  * @author Leandro
  * @since  13/01/2021
  * @see    controlador.visao.painel.ControllerPanel
- * @see    visao.painel.consulta.filtro.PanelFiltro
+ * @see    visao.painel.filtro.PanelFiltro
  */
 public class ControllerPanelFiltro extends ControllerPanel {
     

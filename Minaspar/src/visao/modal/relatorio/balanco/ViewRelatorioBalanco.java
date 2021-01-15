@@ -1,30 +1,30 @@
-package visao.modal.consulta.balanco;
+package visao.modal.relatorio.balanco;
 
-import controlador.visao.modal.consulta.balanco.ControllerViewConsultaBalanco;
+import controlador.visao.modal.relatorio.balanco.ControllerViewRelatorioBalanco;
 import java.awt.Dimension;
 import visao.estruturais.menu.ViewMenu;
-import visao.modal.consulta.ViewConsulta;
-import visao.painel.filtro.consulta.balanco.PanelFiltroBalanco;
+import visao.modal.relatorio.ViewRelatorio;
+import visao.painel.filtro.relatorio.PanelFiltroRelatorio;
 
 /**
- * <p>Classe de Visao <b>ViewConsultaBalanco</b>.</p>
- * <p>Classe responsavel por definir a <b>Interface de Consulta do Balanco</b> do Sistema.</p>
+ * <p>Classe de Visao <b>ViewRelatorioBalanco</b>.</p>
+ * <p>Classe responsavel por definir a <b>Interface de Relatorio do Balanco</b> do Sistema.</p>
  * @author Leandro
- * @since  14/01/2021
- * @see    controlador.visao.modal.consulta.balanco.ControllerViewConsultaBalanco
+ * @since  15/01/2021
+ * @see    controlador.visao.modal.relatorio.balanco.ControllerViewRelatorioBalanco
  * @see    modelo.entidade.estoque.Item
- * @see    visao.modal.consulta.ViewConsulta
+ * @see    visao.modal.relatorio.ViewRelatorio
  */
-public final class ViewConsultaBalanco extends ViewConsulta {
+public final class ViewRelatorioBalanco extends ViewRelatorio {
 
     /**
      * Metodo construtor padrao da Classe.
      * @param view View Menu.
      */
-    public ViewConsultaBalanco(ViewMenu view) {
+    public ViewRelatorioBalanco(ViewMenu view) {
         super(view);
-        title      = "Balanço do Estoque";
-        controller = new ControllerViewConsultaBalanco(this);
+        title      = "Relatório do Balanço";
+        controller = new ControllerViewRelatorioBalanco(this);
         setProperties();
         addComponents();
         update();
@@ -37,8 +37,8 @@ public final class ViewConsultaBalanco extends ViewConsulta {
     }
     
     @Override
-    protected PanelFiltroBalanco createFiltro() {
-        return new PanelFiltroBalanco(this);
+    protected PanelFiltroRelatorio createFiltro() {
+        return new PanelFiltroRelatorio(this);
     }
     
     @Override
@@ -71,7 +71,7 @@ public final class ViewConsultaBalanco extends ViewConsulta {
     }
 
     @Override
-    public PanelFiltroBalanco getFiltro() {
-        return (PanelFiltroBalanco) super.getFiltro();
+    public PanelFiltroRelatorio getFiltro() {
+        return (PanelFiltroRelatorio) super.getFiltro();
     }
 }

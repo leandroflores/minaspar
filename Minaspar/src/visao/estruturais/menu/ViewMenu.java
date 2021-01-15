@@ -92,8 +92,12 @@ public final class ViewMenu extends View {
      * Metodo responsavel por criar o Menu Relatorios da View Menu.
      */
     private void createMenuRelatorios() {
-        createMenu("relatorios", "Relatórios");
-        menu.add(getMenu("relatorios"));
+        createMenu("relatorio", "Relatórios");
+        
+        createMenuItem("relatorio_balanco", "Imprimir Balanço", "relatorio/balanco", KeyEvent.VK_I);
+        
+        getMenu("relatorio").add(getMenuItem("relatorio_balanco"));
+        menu.add(getMenu("relatorio"));
     }
     
     /**
@@ -147,6 +151,14 @@ public final class ViewMenu extends View {
      */
     public JMenuItem getMenuItemBalanco() {
         return getMenuItem("processar_balanco");
+    }
+    
+    /**
+     * Metodo responsavel por retornar o Menu Item Relatorio.
+     * @return Menu Item Relatorio.
+     */
+    public JMenuItem getMenuItemRelatorio() {
+        return getMenuItem("relatorio_balanco");
     }
     
     /**

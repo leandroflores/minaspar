@@ -11,7 +11,7 @@ import visao.modal.editar.estoque.ViewEditarItem;
 import visao.modal.excluir.estoque.ViewExcluirItem;
 import visao.modal.mensagem.ViewErro;
 import visao.modal.novo.estoque.ViewNovoItem;
-import visao.painel.consulta.filtro.balanco.PanelFiltroBalanco;
+import visao.painel.filtro.consulta.balanco.PanelFiltroBalanco;
 
 /**
  * <p>Classe de Controle <b>ControllerViewConsultaBalanco</b>.</p>

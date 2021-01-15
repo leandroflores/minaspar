@@ -4,7 +4,7 @@ import controlador.visao.modal.consulta.estoque.ControllerViewConsultaItem;
 import java.awt.Dimension;
 import visao.estruturais.menu.ViewMenu;
 import visao.modal.consulta.ViewConsulta;
-import visao.painel.consulta.filtro.estoque.PanelFiltroItem;
+import visao.painel.filtro.consulta.estoque.PanelFiltroItem;
 
 /**
  * <p>Classe de Visao <b>ViewConsultaItem</b>.</p>

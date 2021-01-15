@@ -1,19 +1,19 @@
-package visao.painel.consulta.filtro.estoque;
+package visao.painel.filtro.consulta.estoque;
 
-import controlador.visao.painel.consulta.filtro.ControllerPanelFiltro;
+import controlador.visao.painel.filtro.ControllerPanelFiltro;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import visao.modal.consulta.estoque.ViewConsultaProduto;
-import visao.painel.consulta.filtro.PanelFiltro;
+import visao.painel.filtro.PanelFiltro;
 
 /**
  * <p>Classe de Visao <b>PanelFiltroProduto</b>.</p> 
  * <p>Classe responsavel por definir o <b>Painel de Filtro do Produto</b> do Sistema.</p>
  * @author Leandro
  * @since  13/01/2021
- * @see    controlador.visao.painel.consulta.filtro.ControllerPanelFiltro
+ * @see    controlador.visao.painel.filtro.ControllerPanelFiltro
  * @see    modelo.entidade.estoque.Produto
- * @see    visao.painel.consulta.filtro.PanelFiltro
+ * @see    visao.painel.filtro.PanelFiltro
  */
 public final class PanelFiltroProduto extends PanelFiltro {
     

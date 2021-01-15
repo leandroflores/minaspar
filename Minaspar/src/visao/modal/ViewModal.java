@@ -586,4 +586,12 @@ public abstract class ViewModal extends JDialog implements Viewable {
         super.setSize(y, x);
         setLocationRelativeTo(getParent());
     }
+    
+    /**
+     * Metodo responsavel por retornar o Controller da View Modal.
+     * @return Controller da View Modal.
+     */
+    public Controller getController() {
+        return controller;
+    }
 }

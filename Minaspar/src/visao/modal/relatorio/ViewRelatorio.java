@@ -1,7 +1,7 @@
-package visao.modal.consulta;
+package visao.modal.relatorio;
 
 import controlador.visao.interfaces.Updatable;
-import controlador.visao.modal.consulta.ControllerViewConsulta;
+import controlador.visao.modal.relatorio.ControllerViewRelatorio;
 import java.awt.FlowLayout;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -16,21 +16,21 @@ import visao.modal.ViewModal;
 import visao.painel.filtro.PanelFiltro;
 
 /**
- * <p>Classe de Visao <b>ViewConsulta</b>.</p>
- * <p>Classe responsavel por definir a <b>Interface de Consulta</b> do Sistema.</p>
+ * <p>Classe de Visao <b>ViewRelatorio</b>.</p>
+ * <p>Classe responsavel por definir a <b>Interface de Relatorio</b> do Sistema.</p>
  * @author Leandro
- * @since  17/12/2020
+ * @since  15/01/2021
  * @see    controlador.visao.interfaces.Updatable
- * @see    controlador.visao.modal.consulta.ControllerViewConsulta
+ * @see    controlador.visao.modal.relatorio.ControllerViewRelatorio
  * @see    visao.modal.ViewModal
  */
-public abstract class ViewConsulta extends ViewModal implements Updatable {
+public abstract class ViewRelatorio extends ViewModal implements Updatable {
 
     /**
      * Metodo construtor padrao da Classe.
      * @param view View do Sistema.
      */
-    public ViewConsulta(View view) {
+    public ViewRelatorio(View view) {
         super(view);
     }
     
@@ -61,8 +61,8 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
     }
     
     /**
-     * Metodo responsavel por criar o Filtro da View Consulta.
-     * @return Filtro da View Consulta.
+     * Metodo responsavel por criar o Filtro da View Relatorio.
+     * @return Filtro da View Relatorio.
      */
     protected abstract PanelFiltro createFiltro(); 
     
@@ -74,35 +74,35 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
     }
     
     /**
-     * Metodo responsavel por adicionar a Tabela da View Consulta.
+     * Metodo responsavel por adicionar a Tabela da View Relatorio.
      */
     protected void addTable() {
-        createTable("consulta");
-        getContentPane().add(getScrollPane("consulta"));
+        createTable("relatorio");
+        getContentPane().add(getScrollPane("relatorio"));
     }
     
     /**
-     * Metodo responsavel por definir o Cabecalho da Tabela da View Consulta.
+     * Metodo responsavel por definir o Cabecalho da Tabela da View Relatorio.
      */
     protected void setTableHeader() {
-        addColumns("consulta", getColumns());
-        setColumnsSize("consulta", getSizes());
+        addColumns("relatorio", getColumns());
+        setColumnsSize("relatorio", getSizes());
     }
     
     /**
-     * Metodo responsavel por retornar as Colunas da Tabela da View Consulta.
-     * @return Colunas da Tabela da View Consulta.
+     * Metodo responsavel por retornar as Colunas da Tabela da View Relatorio.
+     * @return Colunas da Tabela da View Relatorio.
      */
     protected abstract String[] getColumns();
     
     /**
-     * Metodo responsavel por retornar o Tamanho das Colunas da Tabela da View Consulta.
-     * @return Tamanho das Colunas da Tabela da View Consulta.
+     * Metodo responsavel por retornar o Tamanho das Colunas da Tabela da View Relatorio.
+     * @return Tamanho das Colunas da Tabela da View Relatorio.
      */
     protected abstract Integer[] getSizes();
     
     /**
-     * Metodo responsavel por adicionar o Rodape da Tabela na View Consulta.
+     * Metodo responsavel por adicionar o Rodape da Tabela na View Relatorio.
      */
     protected abstract void addTableFooter();
     
@@ -152,16 +152,14 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
     public void addFooter() {
         JPanel footer = new JPanel();
                footer.setLayout(new FlowLayout(FlowLayout.CENTER));
-               footer.add(createButton("novo",    "  Novo   ", "inserir"));
-               footer.add(createButton("editar",  " Editar  ", "editar"));
-               footer.add(createButton("excluir", " Excluir ", "excluir"));
-               footer.add(createButton("voltar",  " Voltar  ", "voltar"));
+               footer.add(createButton("imprimir", " Imprimir ", "imprimir"));
+               footer.add(createButton("voltar",   "  Voltar  ", "voltar"));
         getContentPane().add(footer);
     }
     
     /**
-     * Metodo responsavel por retornar o Filtro da View Consulta.
-     * @return Filtro da View Consulta.
+     * Metodo responsavel por retornar o Filtro da View Relatorio.
+     * @return Filtro da View Relatorio.
      */
     public PanelFiltro getFiltro() {
         return (PanelFiltro) getPanel("filtro");
@@ -176,19 +174,19 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
     }
 
     /**
-     * Metodo responsavel por retornar a Tabela de Consulta.
-     * @return Tabela de Consulta.
+     * Metodo responsavel por retornar a Tabela de Relatorio.
+     * @return Tabela de Relatorio.
      */
     public JTable getTable() {
-        return getTable("consulta");
+        return getTable("relatorio");
     }
 
     /**
-     * Metodo responsavel por retornar o Modelo da Tabela de Consulta.
-     * @return Modelo da Tabela de Consulta.
+     * Metodo responsavel por retornar o Modelo da Tabela de Relatorio.
+     * @return Modelo da Tabela de Relatorio.
      */
     public DefaultTableModel getTableModel() {
-        return (DefaultTableModel) getTableModel("consulta");
+        return (DefaultTableModel) getTableModel("relatorio");
     }
 
     /**
@@ -202,35 +200,19 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
     }
     
     /**
-     * Metodo responsavel por retornar o Scroll Pane da Tabela de Consulta.
-     * @return Scroll Pane da Tabela de Consulta.
+     * Metodo responsavel por retornar o Scroll Pane da Tabela de Relatorio.
+     * @return Scroll Pane da Tabela de Relatorio.
      */
     public JScrollPane getScrollPane() {
-        return getScrollPane("consulta");
+        return getScrollPane("relatorio");
     }
     
      /**
-     * Metodo responsavel por retornar o Button Novo.
-     * @return Button Novo.
+     * Metodo responsavel por retornar o Button Imprimir.
+     * @return Button Imprimir.
      */
-    public JButton getButtonNovo() {
-        return getButton("novo");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Button Editar.
-     * @return Button Editar.
-     */
-    public JButton getButtonEditar() {
-        return getButton("editar");
-    }
-    
-    /**
-     * Metodo responsavel por retornar o Button Excluir.
-     * @return Button Excluir.
-     */
-    public JButton getButtonExcluir() {
-        return getButton("excluir");
+    public JButton getButtonImprimir() {
+        return getButton("imprimir");
     }
     
     /**
@@ -240,12 +222,9 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
     public JButton getButtonVoltar() {
         return getButton("voltar");
     }
-    
-    /**
-     * Metodo responsavel por retornar o Controller da View Consulta.
-     * @return Controller da View Consulta.
-     */
-    public ControllerViewConsulta getController() {
-        return (ControllerViewConsulta) controller;
+
+    @Override
+    public ControllerViewRelatorio getController() {
+        return (ControllerViewRelatorio) controller;
     }
 }
