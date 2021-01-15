@@ -1,14 +1,15 @@
 package arquivo.relatorio;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -93,9 +94,10 @@ public abstract class Relatorio {
      */
     protected void show() throws JRException, SQLException {
         parametros.put("logo", getLogo());
-        JasperReport jasperReport = JasperCompileManager.compileReport(getFolder() + nome);
-	JasperPrint  jasperPrint  = JasperFillManager.fillReport(jasperReport, parametros, getConnection());
-        JasperViewer.viewReport(jasperPrint, false);
+        InputStream  stream = Thread.currentThread().getContextClassLoader().getResourceAsStream("arquivo/relatorio/url/jasper/" + nome);
+        JasperReport report = (JasperReport) JRLoader.loadObject(stream);
+	JasperPrint  print  = JasperFillManager.fillReport(report, parametros, getConnection());
+        JasperViewer.viewReport(print, false);
     }
     
     /**

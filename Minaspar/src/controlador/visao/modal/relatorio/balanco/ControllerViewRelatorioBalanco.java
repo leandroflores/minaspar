@@ -61,6 +61,7 @@ public class ControllerViewRelatorioBalanco extends ControllerViewRelatorio {
                       relatorio.create();
             getView().dispose();
         }catch (JRException | SQLException exception) {
+            System.out.println(exception);
             new ViewErro(getView(), "Erro ao criar o Relatório!").setVisible(true);
         }
     }
