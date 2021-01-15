@@ -148,6 +148,19 @@ public class Item extends Entidade {
     public void setValorTotal(Float valorTotal) {
         this.valorTotal = valorTotal;
     }
+    
+    /**
+     * Metodo responsavel por retornar o Token de Exportacao do Item.
+     * @return Token de Exportacao do Item.
+     */
+    public String getToken() {
+        return ano + "|" + 
+               produto.getCodigoBarras() + "|" + 
+               quantidade + "|" + 
+               valorUnitario + "|" +
+               valorTotal + "|" +
+               new FunctDate().getFormattedDate(dataCadastro);
+    }
 
     @Override
     public String[] getDadosPesquisa() {

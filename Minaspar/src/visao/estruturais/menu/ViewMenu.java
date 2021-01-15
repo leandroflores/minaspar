@@ -1,6 +1,7 @@
 package visao.estruturais.menu;
 
 import controlador.visao.estruturais.ControllerViewMenu;
+import java.awt.event.KeyEvent;
 import javax.swing.BoxLayout;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -66,8 +67,8 @@ public final class ViewMenu extends View {
     private void createMenuEstoque() {
         createMenu("estoque", "Estoque");
         
-        createMenuItem("estoque_produto", "Consultar Produtos", "estoque/produto");
-        createMenuItem("estoque_balanco", "Itens do Estoque",   "estoque/balanco");
+        createMenuItem("estoque_produto", "Consultar Produtos", "estoque/produto", KeyEvent.VK_P);
+        createMenuItem("estoque_balanco", "Itens do Estoque",   "estoque/balanco", KeyEvent.VK_E);
         
         getMenu("estoque").add(getMenuItem("estoque_produto"));
         getMenu("estoque").addSeparator();
@@ -81,7 +82,7 @@ public final class ViewMenu extends View {
     private void createMenuProcessar() {
         createMenu("processar", "Processar");
         
-        createMenuItem("processar_balanco", "Balanço", "processar/balanco");
+        createMenuItem("processar_balanco", "Balanço", "processar/balanco", KeyEvent.VK_B);
         
         getMenu("processar").add(getMenuItem("processar_balanco"));
         menu.add(getMenu("processar"));
@@ -138,6 +139,14 @@ public final class ViewMenu extends View {
      */
     public JMenuItem getMenuItemEstoque() {
         return getMenuItem("estoque_balanco");
+    }
+    
+    /**
+     * Metodo responsavel por retornar o Menu Item Balanco.
+     * @return Menu Item Balanco.
+     */
+    public JMenuItem getMenuItemBalanco() {
+        return getMenuItem("processar_balanco");
     }
     
     /**

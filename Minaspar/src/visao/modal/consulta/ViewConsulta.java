@@ -135,7 +135,7 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
         JPanel total = new JPanel();
                total.setLayout(new FlowLayout(FlowLayout.CENTER));
                total.add(createLabel("Total: "));
-               total.add(createRightTextFieldNoEditable("total", "0.00", 8));
+               total.add(createRightTextFieldNoEditable("total", "0.00", 10));
         return total;
     }
     
@@ -144,7 +144,7 @@ public abstract class ViewConsulta extends ViewModal implements Updatable {
      * @param total Total de Registros.
      */     
     public void setTotal(Float total) {
-        String text = total > 0 ? new DecimalFormat("#,##0.00").format(total) : "0.00";
+        String text = total > 0 ? new DecimalFormat("R$ #,##0.00").format(total) : "0.00";
         getTextField("total").setText(text);
     }
     

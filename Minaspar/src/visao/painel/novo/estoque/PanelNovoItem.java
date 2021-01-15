@@ -63,6 +63,7 @@ public final class PanelNovoItem extends PanelNovo {
     public void clear() {
         item = new Item();
         getPanelBaseItem().setValues();
+        getPanelBaseItem().getTextFieldCodigoBarras().requestFocus();
     }
     
     /**

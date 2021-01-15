@@ -3,6 +3,7 @@ package visao.modal.editar.estoque;
 import controlador.visao.modal.editar.estoque.ControllerViewEditarItem;
 import java.awt.Dimension;
 import modelo.entidade.estoque.Item;
+import visao.modal.consulta.balanco.ViewConsultaBalanco;
 import visao.modal.consulta.estoque.ViewConsultaItem;
 import visao.modal.editar.ViewEditar;
 import visao.painel.editar.estoque.PanelEditarItem;
@@ -25,6 +26,20 @@ public final class ViewEditarItem extends ViewEditar {
      * @param item_ Item.
      */
     public ViewEditarItem(ViewConsultaItem view, Item item_) {
+        super(view);
+        item       = item_;
+        title      = "Editar Item de Estoque";
+        controller = new ControllerViewEditarItem(this);
+        setProperties();
+        addComponents();
+    }
+    
+    /**
+     * Metodo construtor alternativo da Classe.
+     * @param view View Consulta Balanco.
+     * @param item_ Item.
+     */
+    public ViewEditarItem(ViewConsultaBalanco view, Item item_) {
         super(view);
         item       = item_;
         title      = "Editar Item de Estoque";

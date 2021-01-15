@@ -3,6 +3,7 @@ package visao.modal.excluir.estoque;
 import controlador.visao.modal.excluir.estoque.ControllerViewExcluirItem;
 import java.awt.Dimension;
 import modelo.entidade.estoque.Item;
+import visao.modal.consulta.balanco.ViewConsultaBalanco;
 import visao.modal.consulta.estoque.ViewConsultaItem;
 import visao.modal.excluir.ViewExcluir;
 
@@ -24,6 +25,20 @@ public final class ViewExcluirItem extends ViewExcluir {
      * @param item_ Item.
      */
     public ViewExcluirItem(ViewConsultaItem view, Item item_) {
+        super(view);
+        item       = item_;
+        title      = "Excluir Item de Estoque";
+        controller = new ControllerViewExcluirItem(this);
+        setProperties();
+        addComponents();
+    }
+    
+    /**
+     * Metodo construtor padrao da Classe.
+     * @param view View Consulta Balanco.
+     * @param item_ Item.
+     */
+    public ViewExcluirItem(ViewConsultaBalanco view, Item item_) {
         super(view);
         item       = item_;
         title      = "Excluir Item de Estoque";

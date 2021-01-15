@@ -1,9 +1,7 @@
 package visao.painel.consulta.filtro.estoque;
 
 import controlador.visao.painel.consulta.filtro.ControllerPanelFiltro;
-import funct.FunctDate;
 import java.awt.FlowLayout;
-import java.util.Date;
 import javax.swing.JTextField;
 import visao.modal.consulta.estoque.ViewConsultaItem;
 import visao.painel.consulta.filtro.PanelFiltro;
