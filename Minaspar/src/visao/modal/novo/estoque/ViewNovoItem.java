@@ -38,7 +38,7 @@ public final class ViewNovoItem extends ViewNovo implements Searchable {
     @Override
     public void setProperties() {
         super.setProperties();
-        setSize(new Dimension(740, 460));
+        setSize(new Dimension(825, 460));
     }
     
     /**

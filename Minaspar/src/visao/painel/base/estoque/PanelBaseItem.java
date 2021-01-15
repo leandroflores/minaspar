@@ -67,10 +67,10 @@ public final class PanelBaseItem extends PanelBase {
         add(createRightLabel("Quantidade*: "), createConstraints(1, 1, 0, 3));
         add(createSpinnerEditable("quantidade"), createConstraints(1, 1, 1, 3));
         getSpinnerQuantidade().addChangeListener(controller);
-        add(createRightLabel("Valor Unitário*: "), createConstraints(1, 1, 2, 3));
+        add(createRightLabel("Valor Unitário*: ", 140), createConstraints(1, 1, 2, 3));
         add(createDecimalTextField("valor_unitario", 0.00f, 7), createConstraints(1, 1, 3, 3));
-        add(createRightLabel("Valor Total*: "), createConstraints(1, 1, 4, 3));
-        add(createDecimalTextField("valor_total", 0.00f, 7), createConstraints(1, 1, 5, 3));
+        add(createRightLabel("Valor Total*: ", 110), createConstraints(1, 1, 4, 3));
+        add(createDecimalTextField("valor_total", 0.00f, 8), createConstraints(1, 1, 5, 3));
         getTextFieldValorTotal().setEditable(false);
         add(createRightLabel(" "), createConstraints(1, 1, 6, 3));
     }

@@ -47,6 +47,7 @@ public final class PanelEditarProduto extends PanelEditar {
         add(tabbedPane);
     }
     
+    @Override
     protected void addPanels() {
         addPanelBaseProduto();
     }

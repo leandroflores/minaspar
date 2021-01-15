@@ -136,6 +136,18 @@ public abstract class Panel extends JPanel {
     }
     
     /**
+     * Metodo responsavel por retornar um Novo Right Label.
+     * @param  title Titulo do Right Label.
+     * @param  size Tamanho do Right Label.
+     * @return Novo Right Label.
+     */
+    protected JLabel createRightLabel(String title, int size) {
+        JLabel label = createRightLabel(title);
+               label.setPreferredSize(new Dimension(size, ViewStyle.ALTURA));
+        return label;
+    }
+    
+    /**
      * Metodo responsavel por retornar um Novo Title Label.
      * @param  title Titulo do Label.
      * @return Novo Title Label.

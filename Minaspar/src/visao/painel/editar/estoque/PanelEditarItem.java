@@ -1,42 +1,45 @@
-package visao.painel.novo.estoque;
+package visao.painel.editar.estoque;
 
-import controlador.visao.painel.novo.estoque.ControllerPanelNovoItem;
+import controlador.visao.painel.editar.estoque.ControllerPanelEditarItem;
 import java.awt.Dimension;
 import javax.swing.JTabbedPane;
 import modelo.entidade.estoque.Item;
-import visao.modal.novo.ViewNovo;
+import visao.modal.editar.ViewEditar;
 import visao.painel.base.estoque.PanelBaseItem;
-import visao.painel.novo.PanelNovo;
+import visao.painel.editar.PanelEditar;
 
 /**
- * <p>Classe de Visao <b>PanelNovoItem</b>.</p> 
- * <p>Classe responsavel por definir o Painel Grafico da <b>ViewNovoItem</b> do Sistema.</p>
+ * <p>Classe de Visao <b>PanelEditarItem</b>.</p> 
+ * <p>Classe responsavel por definir o Painel Grafico da <b>ViewEditarItem</b> do Sistema.</p>
  * @author Leandro
  * @since  14/01/2021
- * @see    controlador.visao.painel.novo.estoque.ControllerPanelNovoItem
+ * @see    controlador.visao.painel.editar.estoque.ControllerPanelEditarItem
  * @see    modelo.entidade.estoque.Item
- * @see    visao.painel.novo.PanelNovo
+ * @see    visao.painel.editar.PanelEditar
  */
-public final class PanelNovoItem extends PanelNovo {
-    private Item item;
+public final class PanelEditarItem extends PanelEditar {
+    private final Item item;
     protected JTabbedPane tabbedPane;
     
     /**
      * Metodo construtor padrao da Classe.
-     * @param view View Novo.
+     * @param view View Editar.
+     * @param item_ Item.
      */
-    public PanelNovoItem(ViewNovo view) {
+    public PanelEditarItem(ViewEditar view, Item item_) {
         super(view);
-        item       = new Item();
-        controller = new ControllerPanelNovoItem(this);
+        item       = item_;
+        controller = new ControllerPanelEditarItem(this);
         setProperties();
         addComponents();
+        updatePanelBase();
+        getController().setReady();
     }
 
     @Override
     protected void setProperties() {
         tabbedPane = new JTabbedPane();
-        tabbedPane.setPreferredSize(new Dimension(750, 300));
+        tabbedPane.setPreferredSize(new Dimension(670, 300));
     }
     
     @Override
@@ -45,6 +48,7 @@ public final class PanelNovoItem extends PanelNovo {
         add(tabbedPane);
     }
     
+    @Override
     protected void addPanels() {
         addPanelBaseItem();
     }
@@ -59,10 +63,13 @@ public final class PanelNovoItem extends PanelNovo {
         tabbedPane.add("Item", getScrollPane("base_item"));
     }
     
-    @Override
-    public void clear() {
-        item = new Item();
-        getPanelBaseItem().setValues();
+    /**
+     * Metodo responsavel por atualizar o Panel Base Item.
+     */
+    private void updatePanelBase() {
+        getPanelBaseItem().getButtonPesquisaProduto().setVisible(false);
+        getPanelBaseItem().getTextFieldCodigoBarras().setEditable(false);
+        getPanelBaseItem().getTextFieldDescricao().setEditable(false);
     }
     
     /**

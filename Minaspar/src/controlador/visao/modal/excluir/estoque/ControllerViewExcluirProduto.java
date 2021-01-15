@@ -1,6 +1,7 @@
 package controlador.visao.modal.excluir.estoque;
 
 import controlador.visao.modal.excluir.ControllerViewExcluir;
+import modelo.dao.estoque.DaoItem;
 import modelo.dao.estoque.DaoProduto;
 import modelo.entidade.estoque.Produto;
 import visao.modal.excluir.estoque.ViewExcluirProduto;
@@ -15,7 +16,7 @@ import visao.modal.mensagem.ViewMensagem;
  * @see    modelo.dao.estoque.DaoItem
  * @see    modelo.dao.estoque.DaoProduto
  * @see    modelo.entidade.estoque.Produto
- * @see    visao.modal.excluir.es
+ * @see    visao.modal.excluir.estoque.ViewExcluirProduto
  */
 public class ControllerViewExcluirProduto extends ControllerViewExcluir {
     
@@ -31,6 +32,7 @@ public class ControllerViewExcluirProduto extends ControllerViewExcluir {
     public void excluir() {
         Produto produto = getView().getProduto();
                 produto.setAtivo(false);
+        new DaoItem().delete(produto);
         new DaoProduto().update(produto);
         new ViewMensagem(getView(), "Produto removido com Sucesso!").setVisible(true);
         getView().getView().update();

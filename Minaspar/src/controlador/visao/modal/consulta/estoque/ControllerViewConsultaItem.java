@@ -7,6 +7,9 @@ import modelo.controlador.estoque.ControllerItem;
 import modelo.dao.estoque.DaoItem;
 import modelo.entidade.estoque.Item;
 import visao.modal.consulta.estoque.ViewConsultaItem;
+import visao.modal.editar.estoque.ViewEditarItem;
+import visao.modal.excluir.estoque.ViewExcluirItem;
+import visao.modal.mensagem.ViewErro;
 import visao.modal.novo.estoque.ViewNovoItem;
 import visao.painel.consulta.filtro.estoque.PanelFiltroItem;
 
@@ -57,20 +60,20 @@ public class ControllerViewConsultaItem extends ControllerViewConsulta {
     public void editar() {
         int indice  = getView().getTable().getSelectedRow();
         int tamanho = list.size();
-        //if (indice >= 0 && indice < tamanho)
-        //    new ViewEditarProduto(getView(), list.get(indice)).setVisible(true);
-        //else
-        //    new ViewErro(getView(), "Selecione um Produto!").setVisible(true);
+        if (indice >= 0 && indice < tamanho)
+            new ViewEditarItem(getView(), list.get(indice)).setVisible(true);
+        else
+            new ViewErro(getView(), "Selecione um Item!").setVisible(true);
     }
 
     @Override
     public void excluir() {
         int indice  = getView().getTable().getSelectedRow();
         int tamanho = list.size();
-        //if (indice >= 0 && indice < tamanho)
-        //    new ViewExcluirProduto(getView(), list.get(indice)).setVisible(true);
-        //else
-        //    new ViewErro(getView(), "Selecione um Produto!").setVisible(true);
+        if (indice >= 0 && indice < tamanho)
+            new ViewExcluirItem(getView(), list.get(indice)).setVisible(true);
+        else
+            new ViewErro(getView(), "Selecione um Item!").setVisible(true);
     }
     
     @Override
