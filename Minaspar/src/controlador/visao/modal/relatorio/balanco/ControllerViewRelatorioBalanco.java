@@ -1,11 +1,17 @@
 package controlador.visao.modal.relatorio.balanco;
 
+import arquivo.relatorio.Relatorio;
+import arquivo.relatorio.balanco.RelatorioBalanco;
+import arquivo.relatorio.balanco.RelatorioBalancoAno;
 import controlador.visao.modal.relatorio.ControllerViewRelatorio;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.controlador.estoque.ControllerItem;
 import modelo.dao.estoque.DaoItem;
 import modelo.entidade.estoque.Item;
+import net.sf.jasperreports.engine.JRException;
+import visao.modal.mensagem.ViewErro;
 import visao.modal.relatorio.balanco.ViewRelatorioBalanco;
 import visao.painel.filtro.relatorio.PanelFiltroRelatorio;
 
@@ -50,9 +56,25 @@ public class ControllerViewRelatorioBalanco extends ControllerViewRelatorio {
     
     @Override
     public void imprimir() {
-        System.out.println("Imprimir");
+        try {
+            Relatorio relatorio = createRelatorio();
+                      relatorio.create();
+            getView().dispose();
+        }catch (JRException | SQLException exception) {
+            new ViewErro(getView(), "Erro ao criar o Relatório!").setVisible(true);
+        }
     }
 
+    /**
+     * Metodo responsavel por Criar o Relatorio do Balanco.
+     * @return Relatorio do Balanco.
+     */
+    private Relatorio createRelatorio() {
+        if (checkAno(getString(getView().getFiltro().getTextFieldAno())))
+            return new RelatorioBalancoAno(getInteger(getView().getFiltro().getTextFieldAno()));
+        return new RelatorioBalanco();
+    }
+    
     @Override
     public ControllerItem getController() {
         return new ControllerItem();
