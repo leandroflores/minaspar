@@ -106,6 +106,14 @@ public class Produto extends Entidade {
         this.valorUnitario = valorUnitario;
     }
     
+    /**
+     * Metodo responsavel por retornar os Dados para Exportacao do Produto.
+     * @return Dados para Exportacao do Produto.
+     */
+    public String getDadosExportacao() {
+        return codigoBarras + "|" + descricao + "|" + Float.toString(valorUnitario);
+    }
+    
     @Override
     public String[] getDadosPesquisa() {
         String[] dados    = new String[5];

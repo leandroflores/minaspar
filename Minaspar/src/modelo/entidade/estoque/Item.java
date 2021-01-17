@@ -161,7 +161,7 @@ public class Item extends Entidade {
                valorTotal + "|" +
                new FunctDate().getFormattedDate(dataCadastro);
     }
-
+    
     @Override
     public String[] getDadosPesquisa() {
         return getDados();

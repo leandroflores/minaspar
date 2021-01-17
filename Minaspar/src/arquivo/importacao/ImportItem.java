@@ -28,7 +28,7 @@ public class ImportItem {
      * Metodo responsavel por abrir o Arquivo de Importacao.
      */
     private void openFile() throws FileNotFoundException {
-        String path   = "src/arquivo/itens.txt";
+        String path   = "src/arquivo/dados/dados_itens.txt";
                file   = new FileReader(path);
                buffer = new BufferedReader(file);
     }
@@ -57,21 +57,30 @@ public class ImportItem {
      */
     private void importItem(String line) {
         if (!line.equals("") && line.contains("|")) {
-            String[] values  = line.split("|");
-            Produto  produto = new DaoProduto().find(values[1]);
-            if (produto  != null) {
-                Item item = new Item();
-                     item.setProduto(produto);
-                     item.setAno(Integer.parseInt(values[0]));
-                     item.setQuantidade(Integer.parseInt(values[2]));
-                     item.setValorUnitario(Float.parseFloat(values[3]));
-                     item.setValorTotal(Float.parseFloat(values[4]));
-                     item.setDataCadastro(new FunctDate().createDate(values[5]));
-                new DaoItem().insert(item);
-            }else {
-                System.out.println("Cod.: " + values[1]);
-            }
+            String  values[] = line.split("\\|");
+            Produto produto  = new DaoProduto().find(values[1]);
+            if (produto != null)
+                dao.insert(getItem(produto, values));
+            else 
+                System.out.println("Erro: " + values[1]);
         }
+    }
+    
+    /**
+     * Metodo responsavel por criar o Novo Item a partir dos Dados.
+     * @param  produto Produto do Item.
+     * @param  dados Dados do Item.
+     * @return Novo Item.
+     */
+    private Item getItem(Produto produto, String[] dados) {
+        Item   item = new Item();
+               item.setProduto(produto);
+               item.setAno(Integer.parseInt(dados[0]));
+               item.setQuantidade(Integer.parseInt(dados[2]));
+               item.setValorUnitario(Float.parseFloat(dados[3]));
+               item.setValorTotal(Float.parseFloat(dados[4]));
+               item.setDataCadastro(new FunctDate().createDate(dados[5]));
+        return item;
     }
     
     /**
@@ -86,13 +95,13 @@ public class ImportItem {
      * Metodo principal para a Importacao de Itens no BD.
      * @param args 
      */
-    /*
+    
     public static void main(String[] args) {
-        ImportProduto importProdutos = new ImportProduto();
+        ImportItem import_ = new ImportItem();
         try {
-            importProdutos.readLines();
+            import_.readLines();
         } catch (IOException ex) {
             System.out.println(ex);
         }
-    }*/
+    }
 }

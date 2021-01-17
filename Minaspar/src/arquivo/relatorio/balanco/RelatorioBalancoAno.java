@@ -25,7 +25,8 @@ public class RelatorioBalancoAno extends Relatorio {
     
     @Override
     public void create() throws JRException, SQLException {
-        setNome("balanco_ano.jasper");
+        setNome("balanco_ano.jrxml");
+        //setNome("balanco_ano.jasper");
         addParametro("ano", ano);
         show();
     }

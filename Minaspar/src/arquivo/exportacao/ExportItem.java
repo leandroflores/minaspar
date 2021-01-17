@@ -50,6 +50,7 @@ public class ExportItem {
         file.close();
     }
     
+    /*
     public static void main(String[] args) {
         ExportItem importProdutos = new ExportItem();
         try {
@@ -57,5 +58,5 @@ public class ExportItem {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-    }
+    }*/
 }
