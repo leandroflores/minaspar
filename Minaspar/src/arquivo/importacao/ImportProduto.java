@@ -26,6 +26,7 @@ public class ImportProduto {
      */
     private void openFile() throws FileNotFoundException {
         String path   = "src/arquivo/produtos.txt";
+               dao    = new DaoProduto();
                file   = new FileReader(path);
                buffer = new BufferedReader(file);
     }
@@ -37,14 +38,11 @@ public class ImportProduto {
      */
     public void readLines() throws FileNotFoundException, IOException {
         openFile();
-        dao = new DaoProduto();
-        
         String line  = buffer.readLine();
         while (line != null) {
             importProduto(line);
             line = buffer.readLine();
         }
-        
         closeFile();
     }
     

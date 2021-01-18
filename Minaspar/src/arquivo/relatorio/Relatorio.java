@@ -1,5 +1,6 @@
 package arquivo.relatorio;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -61,6 +62,14 @@ public abstract class Relatorio {
     }
     
     /**
+     * Metodo responsavel por retornar o Logo do Relatorio.
+     * @return Logo do Relatorio.
+     */
+    public String getLogo() {
+        return new File("src/arquivo/relatorio/imagens/logo.png").getAbsolutePath();
+    }
+    
+    /**
      * Metodo responsavel por retornar a Conexao com o Banco de Dados.
      * @return Conexao com o Banco de Dados.
      * @throws SQLException Excecao para Criar a Conexao.
@@ -87,6 +96,13 @@ public abstract class Relatorio {
     }
     
     /**
+     * Metodo responsavel por criar o Relatorio.
+     * @throws net.sf.jasperreports.engine.JRException
+     * @throws java.sql.SQLException
+     */
+    public abstract void create() throws JRException, SQLException;
+    
+    /**
      * Metodo responsavel por compilar e mostrar o Relatorio.
      * @throws JRException Erro no Jasper Report.
      * @throws SQLException Erro no comando SQL.
@@ -96,20 +112,5 @@ public abstract class Relatorio {
         JasperReport report = JasperCompileManager.compileReport(getFolder() + nome);
 	JasperPrint  print  = JasperFillManager.fillReport(report, parametros, getConnection());
         JasperViewer.viewReport(print, false);
-    }
-    
-    /**
-     * Metodo responsavel por criar o Relatorio.
-     * @throws net.sf.jasperreports.engine.JRException
-     * @throws java.sql.SQLException
-     */
-    public abstract void create() throws JRException, SQLException;
-    
-    /**
-     * Metodo responsavel por retornar o Logo do Relatorio.
-     * @return Logo do Relatorio.
-     */
-    public String getLogo() {
-        return System.getProperty("user.dir") + "\\src\\arquivo\\relatorio\\imagens\\logo.png";
     }
 }
