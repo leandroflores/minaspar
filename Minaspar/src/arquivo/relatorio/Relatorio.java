@@ -1,6 +1,6 @@
 package arquivo.relatorio;
 
-import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -58,15 +58,15 @@ public abstract class Relatorio {
      * @return Folder do Relatorio.
      */
     protected String getFolder() {
-        return "src/arquivo/relatorio/url/jasper/";
+        return "/arquivo/jasper/";
     }
     
     /**
      * Metodo responsavel por retornar o Logo do Relatorio.
      * @return Logo do Relatorio.
      */
-    public String getLogo() {
-        return new File("src/arquivo/relatorio/imagens/logo.png").getAbsolutePath();
+    public InputStream getLogo() {
+        return getClass().getResourceAsStream("/arquivo/relatorio/_logo/logo.png");
     }
     
     /**
@@ -109,7 +109,8 @@ public abstract class Relatorio {
      */
     protected void show() throws JRException, SQLException {
         parametros.put("logo", getLogo());
-        JasperReport report = JasperCompileManager.compileReport(getFolder() + nome);
+        InputStream  stream = getClass().getResourceAsStream(getFolder() + nome);
+        JasperReport report = JasperCompileManager.compileReport(stream);
 	JasperPrint  print  = JasperFillManager.fillReport(report, parametros, getConnection());
         JasperViewer.viewReport(print, false);
     }
