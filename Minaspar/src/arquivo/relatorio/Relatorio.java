@@ -19,8 +19,9 @@ import net.sf.jasperreports.view.JasperViewer;
  * @since  15/01/2021
  */
 public abstract class Relatorio {
-    private String nome;
-    private final HashMap parametros;
+    protected String titulo;
+    protected String nome;
+    protected final HashMap parametros;
     
     /**
      * Metodo construtor padrao da Classe.
@@ -79,23 +80,6 @@ public abstract class Relatorio {
     }
     
     /**
-     * Metodo responsavel por adicionar um Parametro do Relatorio.
-     * @param chave Chave do Parametro.
-     * @param objeto Objeto do Parametro.
-     */
-    protected void addParametro(String chave, Object objeto) {
-        parametros.put(chave, objeto);
-    }
-    
-    /**
-     * Metodo responsavel por definir o Nome do Relatorio.
-     * @param nome Nome do Relatorio.
-     */
-    protected void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    /**
      * Metodo responsavel por criar o Relatorio.
      * @throws net.sf.jasperreports.engine.JRException
      * @throws java.sql.SQLException
@@ -112,6 +96,9 @@ public abstract class Relatorio {
         InputStream  stream = getClass().getResourceAsStream(getFolder() + nome);
         JasperReport report = JasperCompileManager.compileReport(stream);
 	JasperPrint  print  = JasperFillManager.fillReport(report, parametros, getConnection());
-        JasperViewer.viewReport(print, false);
+        JasperViewer viewer = new JasperViewer(print, false);
+                     viewer.setTitle("Minaspar - " + titulo);
+                     viewer.setFocusable(true);
+                     viewer.setVisible(true);
     }
 }

@@ -95,8 +95,11 @@ public final class ViewMenu extends View {
         createMenu("relatorio", "Relatórios");
         
         createMenuItem("relatorio_balanco", "Imprimir Balanço", "relatorio/balanco", KeyEvent.VK_I);
+        createMenuItem("relatorio_produto", "Ficha do Produto", "relatorio/produto", KeyEvent.VK_F);
         
         getMenu("relatorio").add(getMenuItem("relatorio_balanco"));
+        getMenu("relatorio").addSeparator();
+        getMenu("relatorio").add(getMenuItem("relatorio_produto"));
         menu.add(getMenu("relatorio"));
     }
     
@@ -159,6 +162,14 @@ public final class ViewMenu extends View {
      */
     public JMenuItem getMenuItemRelatorio() {
         return getMenuItem("relatorio_balanco");
+    }
+    
+    /**
+     * Metodo responsavel por retornar o Menu Item Produto.
+     * @return Menu Item Produto.
+     */
+    public JMenuItem getMenuItemRelatorioProduto() {
+        return getMenuItem("relatorio_produto");
     }
     
     /**

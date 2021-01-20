@@ -25,8 +25,9 @@ public class RelatorioBalancoAno extends Relatorio {
     
     @Override
     public void create() throws JRException, SQLException {
-        setNome("balanco/balanco_ano.jrxml");
-        addParametro("ano", ano);
+        titulo = "Relatório de Balanço";
+        nome   = "balanco/balanco_ano.jrxml";
+        parametros.put("ano", ano);
         show();
     }
 }

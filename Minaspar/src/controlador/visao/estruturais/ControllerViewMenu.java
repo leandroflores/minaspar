@@ -8,6 +8,7 @@ import visao.modal.consulta.balanco.ViewConsultaBalanco;
 import visao.modal.consulta.estoque.ViewConsultaItem;
 import visao.modal.consulta.estoque.ViewConsultaProduto;
 import visao.modal.relatorio.balanco.ViewRelatorioBalanco;
+import visao.modal.relatorio.produto.ViewRelatorioProduto;
 import visao.modal.sistema.ViewSistemaSair;
 import visao.modal.sistema.ViewSistemaSobre;
 
@@ -39,6 +40,8 @@ public class ControllerViewMenu extends ControllerView {
             new ViewConsultaBalanco(getView()).setVisible(true);
         else if (getView().getMenuItemRelatorio().equals(event.getSource()))
             new ViewRelatorioBalanco(getView()).setVisible(true);
+        else if (getView().getMenuItemRelatorioProduto().equals(event.getSource()))
+            new ViewRelatorioProduto(getView()).setVisible(true);
         else if (getView().getMenuItemSobre().equals(event.getSource()))
             new ViewSistemaSobre(getView()).setVisible(true);
         else if (getView().getMenuItemSair().equals(event.getSource()))

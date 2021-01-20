@@ -15,14 +15,12 @@ import modelo.entidade.estoque.Produto;
  * @see    modelo.entidade.estoque.Item
  */
 public class DaoItem extends Dao<Item> {
-    private final DaoProduto dao;
     
     /**
      * Metodo construtor padrao da Classe.
      */
     public DaoItem() {
         super(Item.class);
-        dao = new DaoProduto();
     }
     
     /**
