@@ -1,7 +1,9 @@
 package visao.painel.filtro.consulta.balanco;
 
 import controlador.visao.painel.filtro.ControllerPanelFiltro;
+import funct.FunctDate;
 import java.awt.FlowLayout;
+import java.util.Date;
 import javax.swing.JTextField;
 import visao.modal.consulta.balanco.ViewConsultaBalanco;
 import visao.painel.filtro.PanelFiltro;
@@ -37,10 +39,18 @@ public final class PanelFiltroBalanco extends PanelFiltro {
     protected void addComponents() {
         add(createLabel("Ano*: ", 100));
         add(createYearTextField("ano"));
-        getTextFieldAno().setText("2020");
+        getTextFieldAno().setText(getAno());
         add(createLabel("Produto/Cód. Barras: ", 200));
         add(createTextField("produto", "", 20));
         add(createButtonAtualizar());
+    }
+    
+    /**
+     * Metodo responsavel por retornar o Valor do Ano.
+     * @return Valor do Ano.
+     */
+    private String getAno() {
+        return Integer.toString(new FunctDate().getYearValue(new Date()) - 1);
     }
     
     /**

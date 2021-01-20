@@ -2,6 +2,7 @@ package modelo.entidade.estoque;
 
 import funct.FunctDate;
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +39,7 @@ public class Item extends Entidade {
      */
     public Item() {
         produto       = null;
-        ano           = 2020;
+        ano           = new FunctDate().getYearValue(new Date()) - 1;
         quantidade    = 0;
         valorUnitario = 0.0f;
         valorTotal    = 0.0f;

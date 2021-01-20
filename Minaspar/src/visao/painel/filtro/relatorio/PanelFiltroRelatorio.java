@@ -1,7 +1,9 @@
 package visao.painel.filtro.relatorio;
 
 import controlador.visao.painel.filtro.ControllerPanelFiltro;
+import funct.FunctDate;
 import java.awt.FlowLayout;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import visao.modal.relatorio.balanco.ViewRelatorioBalanco;
@@ -38,12 +40,20 @@ public final class PanelFiltroRelatorio extends PanelFiltro {
     protected void addComponents() {
         add(createLabel("Ano*: ", 50));
         add(createYearTextField("ano"));
-        getTextFieldAno().setText("2020");
+        getTextFieldAno().setText(getAno());
         add(createLabel("Tipo: ", 50));
         add(createComboBox("tipo", getTipos(), 150));
         add(createLabel("Produto/Cód. Barras: ", 175));
         add(createTextField("produto", "", 20));
         add(createButtonAtualizar());
+    }
+    
+    /**
+     * Metodo responsavel por retornar o Valor do Ano.
+     * @return Valor do Ano.
+     */
+    private String getAno() {
+        return Integer.toString(new FunctDate().getYearValue(new Date()) - 1);
     }
     
     /**

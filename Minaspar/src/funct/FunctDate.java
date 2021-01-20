@@ -117,6 +117,15 @@ public class FunctDate {
     }
     
     /**
+     * Metodo responsavel por retornar um Integer com o Ano da Data.
+     * @param  date Data.
+     * @return Integer com o Ano da Data.
+     */
+    public Integer getYearValue(Date date) {
+        return Integer.parseInt(getYear(date));
+    }
+    
+    /**
      * Metodo responsavel por retornar uma String com o mes da Data no formato "MM".
      * @param  date Data a ser formatada.
      * @return String com o Mes da Data.
